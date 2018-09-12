@@ -7,11 +7,11 @@ import styles from './styles';
 
 class DrawerHeader extends React.Component {
     render() {
-      let {classes} = this.props;
+      let {classes, onClose} = this.props;
 
       return (
-        <div className={classes.drawerHeader}>
-          <IconButton onClick={this.props.onClose}>
+        <div className={classes.DrawerHeader}>
+          <IconButton onClick={onClose}>
             <ChevronLeftIcon />
           </IconButton>
         </div>

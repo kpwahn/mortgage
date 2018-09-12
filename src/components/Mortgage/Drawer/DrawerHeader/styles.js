@@ -1,5 +1,5 @@
 const styles = {
-  drawerHeader: {
+  DrawerHeader: {
     display: 'flex',
     justifyContent: 'flex-end'
   }

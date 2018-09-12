@@ -1,7 +1,7 @@
 const drawerWidth = 240;
 
 const styles = theme => ({
-  drawerPaper: {
+  MaterialDrawer: {
     position: 'relative',
     width: drawerWidth,
   }
