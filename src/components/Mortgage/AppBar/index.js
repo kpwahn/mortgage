@@ -35,6 +35,9 @@ function AppBar(props) {
           >
             <MenuIcon />
           </IconButton>
+          <Typography variant="title" color="inherit">
+            Mortgage Tool
+          </Typography>
         </Toolbar>
       </MaterialAppBar>
     </div>
