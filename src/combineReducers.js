@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
+import drawer from './components/Mortgage/Drawer/reducer';
 
 const rootReducer = combineReducers({
-    state: (state = {}) => state
+    drawer
 });
 
 export default rootReducer;
