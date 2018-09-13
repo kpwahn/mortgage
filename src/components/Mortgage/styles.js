@@ -4,7 +4,6 @@ const styles = {
     width: '100%',
     zIndex: '1',
     display: 'flex',
-    overflow: 'hidden',
     position: 'relative'
   }
 };

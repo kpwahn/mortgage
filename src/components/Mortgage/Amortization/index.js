@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 
+import List from './List'
 import styles from './styles';
 
 class Amortization extends React.Component {
@@ -17,7 +18,7 @@ class Amortization extends React.Component {
                 [classes.contentShift]: open
               })
             }>
-            <h1>Hello</h1>
+              <List />
             </main>
         )
     }
@@ -28,18 +29,3 @@ const mapStateToProps = (state) => (
 )
 
 export default connect(mapStateToProps, null)(withStyles(styles)(Amortization));
-
-/*
-content: {
-    flexGrow: 1,
-    backgroundColor: theme.palette.background.default,
-    padding: theme.spacing.unit * 3,
-    transition: theme.transitions.create('margin', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
-  'content-left': {
-    marginLeft: -drawerWidth,
-  }
-*/
