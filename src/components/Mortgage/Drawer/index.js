@@ -19,7 +19,8 @@ function Drawer(props) {
             variant="persistent"
             open={open}
             classes={{
-              paper: classes.MaterialDrawer,
+              docked: classes.MaterialDrawerDocked,
+              paper: classes.MaterialDrawer
             }}
           >
             <DrawerHeader onClose={closeDrawer}/>

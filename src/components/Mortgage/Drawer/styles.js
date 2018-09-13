@@ -4,6 +4,10 @@ const styles = theme => ({
   MaterialDrawer: {
     position: 'relative',
     width: drawerWidth,
+    height: '100%'
+  },
+  MaterialDrawerDocked: {
+    height: '100%'
   }
 });
 
