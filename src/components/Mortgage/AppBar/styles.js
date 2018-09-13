@@ -4,6 +4,10 @@ const styles = theme => ({
   hide: {
     display: 'none',
   },
+  left: {
+    display: 'flex',
+    alignItems: 'center'
+  },
   MaterialAppBar: {
     position: 'absolute',
     transition: theme.transitions.create(['margin', 'width'], {
@@ -18,6 +22,10 @@ const styles = theme => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
     marginLeft: drawerWidth
+  },
+  Toolbar: {
+    display: 'flex',
+    justifyContent: 'space-between'
   }
 });
 

@@ -4,25 +4,34 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import TextField from '@material-ui/core/TextField';
-import {setLoanAmount} from './actions';
+import {setAPR, setLoanAmount, setTerm} from './actions';
 
 class Content extends React.Component {
   constructor(props) {
       super(props);
-
+      // Map action creators to input names
+      this.actions = {
+        apr: setAPR,
+        loanAmount: setLoanAmount,
+        term: setTerm
+      };
+      
       this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(e) {
+    let {name, value} = e.target;
+
     this.props.dispatch(
-      setLoanAmount({
-        name: e.target.name,
-        value: e.target.value
+      this.actions[name]({
+        name: name,
+        value: value
       })
     );
   }
 
   render() {
+    let {apr, loanAmount, term} = this.props.mortgage;
     return (
       <List>
         <ListItem>
@@ -32,8 +41,28 @@ class Content extends React.Component {
             name="loanAmount"
             onChange={this.handleChange}
             type="number"
-            value={this.props.mortgage.loadAmount}
+            value={loanAmount}
           />
+        </ListItem>
+        <ListItem>
+          <TextField
+            id="apr"
+            label="APR"
+            name="apr"
+            onChange={this.handleChange}
+            type="number"
+            value={apr}
+          />
+        </ListItem>
+        <ListItem>
+        <TextField
+          id="term"
+          label="Term"
+          name="term"
+          onChange={this.handleChange}
+          type="number"
+          value={term}
+        />
         </ListItem>
       </List>
     )

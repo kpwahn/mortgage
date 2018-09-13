@@ -12,7 +12,7 @@ import {openDrawer} from '../Drawer/actions';
 import styles from './styles';
 
 function AppBar(props) {
-  const { classes, open } = props;
+  const { classes, mortgage, open } = props;
 
   return (
     <React.Fragment>
@@ -25,19 +25,26 @@ function AppBar(props) {
         }
         position="static"
       >
-        <Toolbar variant="dense">
-          <IconButton
-              color="inherit"
-              onClick={props.openDrawer}
-              className={
-                classNames({[classes.hide]: open})
-              }
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="title" color="inherit">
-            Name Me
-          </Typography>
+        <Toolbar variant="dense" className={classes.Toolbar}>
+          <div className={classes.left}>
+            <IconButton
+                color="inherit"
+                onClick={props.openDrawer}
+                className={
+                  classNames({[classes.hide]: open})
+                }
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="title" color="inherit">
+              Name Me
+            </Typography>
+          </div>
+          <div>
+            <Typography variant="title" color="inherit">
+              {mortgage.monthlyPayment}
+            </Typography>
+          </div>
         </Toolbar>
       </MaterialAppBar>
     </React.Fragment>
@@ -49,6 +56,7 @@ AppBar.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
+  mortgage: state.mortgage,
   open: state.drawer.open
 });
 
