@@ -36,7 +36,7 @@ function AppBar(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="title" color="inherit">
-            Mortgage Tool
+            Name Me
           </Typography>
         </Toolbar>
       </MaterialAppBar>
