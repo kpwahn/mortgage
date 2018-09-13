@@ -15,7 +15,7 @@ function AppBar(props) {
   const { classes, open } = props;
 
   return (
-    <div className={classes.AppBar}>
+    <React.Fragment>
       <MaterialAppBar
         className={
           classNames(
@@ -40,7 +40,7 @@ function AppBar(props) {
           </Typography>
         </Toolbar>
       </MaterialAppBar>
-    </div>
+    </React.Fragment>
   );
 }
 

@@ -1,9 +1,6 @@
 const drawerWidth = 240;
 
 const styles = theme => ({
-  AppBar: {
-    flexGrow: 1,
-  },
   hide: {
     display: 'none',
   },
