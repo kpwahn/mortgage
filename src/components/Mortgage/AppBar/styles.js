@@ -8,6 +8,11 @@ const styles = theme => ({
     display: 'flex',
     alignItems: 'center'
   },
+  interestHeaders: {
+    display: 'flex',
+    justifyContent: 'space-evenly',
+    width: '100%'
+  },
   MaterialAppBar: {
     position: 'absolute',
     transition: theme.transitions.create(['margin', 'width'], {
@@ -23,9 +28,11 @@ const styles = theme => ({
     }),
     marginLeft: drawerWidth
   },
+  root: {
+    paddingLeft: '0'
+  },
   Toolbar: {
-    display: 'flex',
-    justifyContent: 'space-between'
+    display: 'flex'
   }
 });
 

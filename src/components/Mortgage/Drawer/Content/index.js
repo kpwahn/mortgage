@@ -15,7 +15,7 @@ class Content extends React.Component {
         loanAmount: setLoanAmount,
         term: setTerm
       };
-      
+
       this.handleChange = this.handleChange.bind(this);
   }
 
@@ -23,10 +23,7 @@ class Content extends React.Component {
     let {name, value} = e.target;
 
     this.props.dispatch(
-      this.actions[name]({
-        name: name,
-        value: value
-      })
+      this.actions[name]({value})
     );
   }
 

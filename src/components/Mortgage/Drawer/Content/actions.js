@@ -2,21 +2,27 @@ import {createAction} from 'redux-actions';
 
 const setAPR = createAction(
   'SET_APR',
-  ({name, value}) => ({name, value})
+  ({value}) => ({value})
 );
 
 const setLoanAmount = createAction(
   'SET_LOAN_AMOUNT',
-  ({name, value}) => ({name, value})
+  ({value}) => ({value})
 );
 
 const setTerm = createAction(
   'SET_TERM',
-  ({name, value}) => ({name, value})
-)
+  ({value}) => ({value})
+);
+
+const setExtra = createAction(
+  'SET_EXTRA',
+  ({index, value}) => ({index, value})
+);
 
 export {
   setAPR,
+  setExtra,
   setLoanAmount,
   setTerm
 };

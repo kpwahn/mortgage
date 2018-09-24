@@ -4,13 +4,13 @@ const styles = theme => ({
   Amortization: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
-    padding: theme.spacing.unit * 3,
     paddingTop: theme.spacing.unit * 6,
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
     marginLeft: -drawerWidth,
+    width: 'calc(100% - 240px)'
   },
   contentShift: {
     transition: theme.transitions.create('margin', {

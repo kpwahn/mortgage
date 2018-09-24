@@ -8,11 +8,13 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import classNames from 'classnames';
+import {formatMoney} from 'accounting-js';
 import {openDrawer} from '../Drawer/actions';
 import styles from './styles';
 
 function AppBar(props) {
   const { classes, mortgage, open } = props;
+  let totalInterestSaved = mortgage.totalInterestPaid - mortgage.amortizationExtra[mortgage.amortizationExtra.length - 1].totalInterestPaid;
 
   return (
     <React.Fragment>
@@ -25,7 +27,7 @@ function AppBar(props) {
         }
         position="static"
       >
-        <Toolbar variant="dense" className={classes.Toolbar}>
+        <Toolbar variant="dense" className={classes.Toolbar} classes={{root: classes.root}}>
           <div className={classes.left}>
             <IconButton
                 color="inherit"
@@ -36,14 +38,36 @@ function AppBar(props) {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="title" color="inherit">
-              Name Me
-            </Typography>
           </div>
-          <div>
-            <Typography variant="title" color="inherit">
-              {mortgage.monthlyPayment}
-            </Typography>
+          <div className={classes.interestHeaders}>
+            <div>
+              <Typography
+                color="inherit"
+                variant="caption"
+              >
+                Interest Paid:
+              </Typography>
+              <Typography
+                color="inherit"
+                variant="subheading"
+              >
+                {formatMoney(mortgage.totalInterestPaid)}
+              </Typography>
+            </div>
+            <div>
+              <Typography
+                color="inherit"
+                variant="caption"
+              >
+                Interest Saved:
+              </Typography>
+              <Typography
+                color="inherit"
+                variant="subheading"
+              >
+                {formatMoney(totalInterestSaved)}
+              </Typography>
+            </div>
           </div>
         </Toolbar>
       </MaterialAppBar>

@@ -2,36 +2,63 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import MaterialList from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import { withStyles } from '@material-ui/core/styles';
-import { List as VirtualizedList } from 'react-virtualized';
+import { List as VirtualizedList, WindowScroller  } from 'react-virtualized';
 
+import ListButton from './ListButton';
 import styles from './styles';
 
-// <VirtualizedList
-//   width={300}
-//   height={300}
-//   rowCount={1}
-//   rowHeight={20}
-//   rowRenderer={() => []}
-// />
-
 class List extends React.Component {
-    render() {
-        return (
-            <MaterialList>
-              <ListItem>
-                <ListItemText primary={'hello'} />
-              </ListItem>
-            </MaterialList>
-        )
-    }
+  constructor(props) {
+    super(props);
+
+    this.rowRenderer = this.rowRenderer.bind(this);
+  }
+
+  rowRenderer({key, index, style}) {
+    return (
+      <ListButton key={key} data={this.props.mortgage.amortizationExtra[index]} style={style}/>
+    );
+  }
+
+  _setListRef = ref => {
+    this._list = ref;
+    this._registerList(ref);
+  };
+
+  render() {
+    let {classes} = this.props;
+    let {amortizationExtra} = this.props.mortgage;
+
+    let width = (this.props.open) ? window.outerWidth - 240: window.innerWidth;
+
+    return (
+      <WindowScroller>
+        {
+          ({ height, isScrolling, onChildScroll, scrollTop }) => (
+            <VirtualizedList
+              amortizationExtra={amortizationExtra}
+              className={classes.VirtualizedList}
+              width={width}
+              height={height}
+              isScrolling={isScrolling}
+              onScroll={onChildScroll}
+              overscanRowCount={20}
+              rowCount={amortizationExtra.length}
+              rowHeight={55}
+              rowRenderer={this.rowRenderer}
+              scrollTop={scrollTop}
+            />
+          )
+        }
+      </WindowScroller>
+    );
+  }
 }
 
-const mapStateToProps = (state) => (
-  {mortgage: state.mortgage}
-);
+const mapStateToProps = (state) => ({
+  mortgage: state.mortgage,
+  open: state.drawer.open
+});
 
 export default connect(mapStateToProps, null)(withStyles(styles)(List));

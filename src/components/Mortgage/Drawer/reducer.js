@@ -1,7 +1,7 @@
 import {handleActions} from 'redux-actions';
 
 const INITIAL_STATE = {
-    open: true
+    open: false
 }
 
 const openDrawer = (state, action) => {

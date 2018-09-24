@@ -11,7 +11,7 @@ import {closeDrawer} from './actions';
 import styles from './styles';
 
 function Drawer(props) {
-  const {classes, closeDrawer, open} = props;
+  const {classes, closeDrawer, mortgage, open} = props;
 
   return (
       <React.Fragment>
@@ -23,7 +23,7 @@ function Drawer(props) {
               paper: classes.MaterialDrawer
             }}
           >
-            <DrawerHeader onClose={closeDrawer}/>
+            <DrawerHeader onClose={closeDrawer} monthlyPayment={mortgage.monthlyPayment} />
             <Divider />
             <Content />
           </MaterialDrawer>
@@ -32,6 +32,7 @@ function Drawer(props) {
 }
 
 const mapStateToProps = (state) => ({
+  mortgage: state.mortgage,
   open: state.drawer.open
 });
 
