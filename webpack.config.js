@@ -3,8 +3,7 @@ const webpack = require('webpack');
 
 module.exports = {
   devServer: {
-    stats: 'errors-only',
-    historyApiFallback: true
+    stats: 'errors-only'
   },
   entry: './src/index.js',
   output: {
@@ -24,8 +23,5 @@ module.exports = {
   // Remove this for info about perforamce(i.e bundle size)
   performance : {
     hints : false
-  },
-  watchOptions: {
-    poll: true
   }
 }
